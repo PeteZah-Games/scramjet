@@ -1,8 +1,27 @@
 {
 	"name": "@petezah-games/scramjet-controller",
 	"version": "0.0.10",
+	"description": "Controller for Scramjet proxy, it manages coordination between application, service workers, and proxy transports",
 	"type": "module",
 	"packageManager": "pnpm@10.12.1",
+	"license": "AGPL-3.0-only",
+	"author": "PeteZah Games",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/petezah-games/scramjet"
+	},
+	"bugs": {
+		"url": "https://github.com/petezah-games/scramjet/issues"
+	},
+	"homepage": "https://github.com/petezah-games/scramjet#readme",
+	"keywords": [
+		"proxy",
+		"scramjet",
+		"web-proxy",
+		"service-worker",
+		"rpc",
+		"transport"
+	],
 	"exports": {
 		".": {
 			"import": "./dist/controller.api.js",
@@ -12,7 +31,7 @@
 			"import": "./dist/controller.inject.js",
 			"types": "./dist/types/inject.d.ts"
 		},
-		"./hooks": {
+		"./worker": {
 			"import": "./dist/controller.sw.js",
 			"types": "./dist/types/sw.d.ts"
 		}
