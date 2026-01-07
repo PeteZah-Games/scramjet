@@ -29,6 +29,7 @@ The package exports three main entry points:
 - **`@petezah-games/scramjet-controller`** - Main Controller API
 - **`@petezah-games/scramjet-controller/inject`** - Injection utilities for service workers
 - **`@petezah-games/scramjet-controller/worker`** - Service worker
+- **`@petezah-games/scramjet-controller/path`** - Path to dist
 
 ## Key Features
 
