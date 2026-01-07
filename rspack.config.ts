@@ -29,7 +29,7 @@ if (!process.env.CI) {
 			"pnpm format\ngit update-index --again"
 		);
 		chmodSync(".git/hooks/pre-commit", 0o755);
-	} catch {}
+	} catch { }
 }
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
@@ -166,11 +166,11 @@ const createScramjetConfig = (options) => {
 			}),
 			process.env.DEBUG
 				? new RsdoctorRspackPlugin({
-						supports: {
-							parseBundle: true,
-							banner: true,
-						},
-					})
+					supports: {
+						parseBundle: true,
+						banner: true,
+					},
+				})
 				: null,
 		],
 		target: "webworker",
@@ -237,7 +237,7 @@ class TypeScriptDeclarationsPlugin {
 
 					try {
 						await execAsync(`rm -rf ${this.tempDir}`, { cwd: this.dir });
-					} catch (e) {}
+					} catch (e) { }
 
 					console.log(
 						`TypeScript declarations generated successfully for ${this.dir}`
@@ -391,11 +391,8 @@ const controllerConfig = createGenericConfig({
 	output: {
 		filename: "controller.[name].js",
 		path: join(controllerdir, "dist"),
-		iife: true,
-		library: {
-			type: "var",
-			name: "$scramjetController",
-		},
+		libraryTarget: "module",
+		iife: false,
 	},
 	plugins: [
 		new TypeScriptDeclarationsPlugin(

@@ -1,8 +1,6 @@
 import { type MethodsDefinition, RpcHelper } from "@mercuryworkshop/rpc";
 import type * as ScramjetGlobal from "@mercuryworkshop/scramjet";
 
-declare const $scramjet: typeof ScramjetGlobal;
-
 import {
 	type TransportToController,
 	type Controllerbound,
@@ -15,6 +13,7 @@ import {
 	BareResponse,
 	type ProxyTransport,
 } from "@mercuryworkshop/proxy-transports";
+import * as $scramjet from '@mercuryworkshop/scramjet';
 
 const cookieJar = new $scramjet.CookieJar();
 
@@ -159,7 +158,7 @@ export class Controller {
 						headers: fetchresponse.headers.toRawHeaders(),
 					},
 					fetchresponse.body instanceof ReadableStream ||
-					fetchresponse.body instanceof ArrayBuffer
+						fetchresponse.body instanceof ArrayBuffer
 						? [fetchresponse.body]
 						: [],
 				];
@@ -251,7 +250,7 @@ export class Controller {
 			};
 			rpc.call("ready", undefined, []);
 		},
-		sendSetCookie: async ({ url, cookie }) => {},
+		sendSetCookie: async ({ url, cookie }) => { },
 	};
 
 	constructor(public init: ControllerInit) {
@@ -324,7 +323,7 @@ function yieldGetInjectScripts(
 			script(prefix.href + config.virtualWasmPath),
 			script(
 				"data:text/javascript;base64," +
-					btoa(`
+				btoa(`
 					document.currentScript.remove();
 					$scramjetController.load({
 						config: ${JSON.stringify(config)},
@@ -418,7 +417,7 @@ class Frame {
 			crossOriginIsolated: self.crossOriginIsolated,
 			context: this.context,
 			transport: controller.transport,
-			async sendSetCookie(url, cookie) {},
+			async sendSetCookie(url, cookie) { },
 			async fetchBlobUrl(url) {
 				return BareResponse.fromNativeResponse(await fetch(url));
 			},

@@ -9,7 +9,9 @@ VER=$(curl --silent -qI https://github.com/WebAssembly/binaryen/releases/latest 
 curl -LO https://github.com/WebAssembly/binaryen/releases/download/$VER/binaryen-${VER}-x86_64-linux.tar.gz
 tar xvf binaryen-${VER}-x86_64-linux.tar.gz
 rm -rf binaryen-${VER}-x86_64-linux.tar.gz
+mkdir -p ~/.local/bin
 mv binaryen-${VER}/bin/* ~/.local/bin
+mkdir -p ~/.local/lib
 mv binaryen-${VER}/lib/* ~/.local/lib
 rm -rf binaryen-${VER}
 cargo install --git https://github.com/r58playz/wasm-snip

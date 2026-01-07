@@ -28,7 +28,8 @@
 	"exports": {
 		".": {
 			"types": "./dist/types/index.d.ts",
-			"default": "./dist/scramjet.mjs"
+			"default": "./dist/scramjet.mjs",
+			"module": "./dist/scramjet.mjs"
 		},
 		"./path": {
 			"types": "./lib/index.d.ts",

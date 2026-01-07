@@ -1,6 +1,5 @@
 import type { CookieJar, ScramjetConfig } from "@mercuryworkshop/scramjet";
-import type * as ScramjetGlobal from "@mercuryworkshop/scramjet";
-declare const $scramjet: typeof ScramjetGlobal;
+import * as $scramjet from "@mercuryworkshop/scramjet";
 
 import type {
 	RawHeaders,
@@ -67,9 +66,9 @@ class RemoteTransport implements ProxyTransport {
 		onclose: (code: number, reason: string) => void,
 		onerror: (error: string) => void
 	): [
-		(data: Blob | ArrayBuffer | string) => void,
-		(code: number, reason: string) => void,
-	] {
+			(data: Blob | ArrayBuffer | string) => void,
+			(code: number, reason: string) => void,
+		] {
 		const channel = new MessageChannel();
 		let port = channel.port1;
 		console.warn("connecting");
