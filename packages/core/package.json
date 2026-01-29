@@ -1,13 +1,17 @@
 {
-	"name": "@mercuryworkshop/scramjet",
-	"version": "2.0.2-alpha",
+	"name": "@petezah-games/scramjet",
+	"version": "2.0.2-petezah-alpha",
 	"description": "An experimental web proxy that aims to be the successor to Ultraviolet",
 	"type": "module",
 	"types": "./dist/types/index.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/MercuryWorkshop/scramjet"
+		"url": "https://github.com/petezah-games/scramjet"
 	},
+	"bugs": {
+		"url": "https://github.com/petezah-games/scramjet/issues"
+	},
+	"homepage": "https://github.com/petezah-games/scramjet#readme",
 	"scripts": {
 		"build": "cd ../.. && rspack build --mode production",
 		"rewriter:build": "cd rewriter/wasm/ && bash build.sh && cd ../../",
@@ -38,6 +42,9 @@
 		"./bundled": {
 			"types": "./dist/types/index.d.ts",
 			"default": "./dist/scramjet_bundled.mjs"
+		},
+		"./wasm": {
+			"default": "./dist/scramjet.wasm"
 		}
 	},
 	"files": [
